@@ -211,6 +211,13 @@ button:focus { outline: none; }
 	width: 100%;		
 }
 
+.tm-img2 {
+  	width: 380px;
+  	height: auto;
+  	border: 10px solid #92C171;
+  	margin: 0 auto 10px;
+}
+
 .tm-img {
   	width: 280px;
   	height: auto;

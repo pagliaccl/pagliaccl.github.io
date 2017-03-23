@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var geoCoordMap = {
+    'JFK':[-73.77694444,40.63861111],
+    'ORD':[-87.907083335,41.9790972225],
+    'LGA':[-73.874166665,40.77833333],
+    'ATL':[-84.4275,33.639166666],
+    'HPN':[-73.70763889,41.067916665],
+    'PHL':[-75.24472222,39.87013889],
+    'EWR':[-74.17013889,40.694166665],
+    'BWI':[-76.6690740733,39.17537037],
+    'IAD':[-77.45875,38.944583335],
+    'DTW':[-83.348888885,42.214583335],
+    'DCA':[-77.0375,38.8516666667],
+    'CLT':[-80.9426851867,35.2155555567],
+    'MSP':[-93.219722225,44.884027775],
+    'MEM':[-89.97763889,35.04611111],
+    'BOS':[-71.00625,42.363333335],
+    'ALB':[-73.80361111,42.7475],
+    'DEN':[-104.7763889,39.818055555],
+    'PIT':[-80.234305555,40.49402778],
+    'BUF':[-78.7329166675,42.9406944475],
+    'SDF':[-85.73787037,38.17787037],
+    'DFW':[-97.0366666675,32.8962499975],
+    'SYR':[-76.104444445,43.110833335],
+    'IND':[-86.2860416675,39.7243055575],
+    'RDU':[-78.78472222,35.87652778],
+    'BDL':[-72.6832638875,41.9385416675],
+    'BNA':[-86.68,36.125555555],
+    'CMH':[-82.8874999967,39.99537037],
+    'ROC':[-77.671527775,43.120208335],
+    'PVD':[-71.42722222,41.72611111],
+    'ISP':[-73.100555555,40.795972225],
+    'CLE':[-81.8530555533,41.4099074033],
+    'CVG':[-84.668194445,39.048333335],
+    'IAH':[-95.3404629633,29.9837037],
+    'FLL':[-80.1518055575,26.07263889],
+    'ORF':[-76.20125,36.895277775],
+    'STL':[-90.3648148133,38.74787037],
+    'MDW':[-87.75222222,41.785416665],
+    'MKE':[-87.896944444,42.948333332],
+    'MIA':[-80.2874074067,25.7934259267],
+    'MCO':[-81.316805555,28.430555555],
+    'FRG':[-73.414166665,40.729166665],
+    'TPA':[-82.534305555,27.97430556],
+    'RIC':[-77.31972222,37.50527778],
+    'PWM':[-70.30712963,43.64537037],
+    'GSP':[-82.2155555567,34.89777778],
+    'MCI':[-94.71388889,39.2975],
+    'SWF':[-74.10097222,41.505],
+    'CHS':[-80.039722225,32.89888889],
+    'MSY':[-90.2562037067,29.99259259],
+    'ACY':[-74.57777778,39.456944445],
+    'TEB':[-74.061527775,40.84986111],
+    'JAX':[-81.68777778,30.489444445],
+    'MHT':[-71.438125,42.9369444425],
+    'LAS':[-115.154444433,36.0799074067],
+    'GSO':[-79.941944445,36.096666665],
+    'SFB':[-81.237083335,28.7765972225],
+    'GRR':[-85.5237037067,42.8810185167],
+    'DAY':[-84.21972222,39.901666665],
+    'DAL':[-96.85212963,32.8470370333],
+    'HTO':[-72.2518518533,40.95944444],
+    'AUS':[-97.685694445,30.24625],
+    'FOK':[-72.6320370367,40.84361111],
+    'BED':[-71.2893518533,42.4702777767],
+    'SAT':[-98.4694444433,29.53361111],
+    'GPT':[-89.07013889,30.406666665],
+    'YIP':[-83.53074074,42.2389814833],
+    'ITH':[-76.458333335,42.490833335],
+    'OMA':[-95.89375,41.3025],
+    'BHM':[-86.754722225,33.5632638925],
+    'ELM':[-76.8929629633,42.1601851833],
+    'RME':[-75.40722222,43.23388889],
+    'FID':[-72.03166667,41.25138889],
+    'NY1':[-73.964305555,41.98527778],
+    'BGM':[-75.9762037033,42.20611111],
+    'RSW':[-81.75513889,26.53611111],
+    'PBG':[-73.46805556,44.65083333],
+    'IAG':[-78.9458333333,43.1073148133],
+    'MTP':[-71.92055556,41.07666667],
+    'LEX':[-84.60537037,38.0377777767],
+    'VGC':[-75.56125,42.84361111],
+    'ONH':[-75.06444444,42.52472222],
+    'MDT':[-76.76236111,40.19305556],
+    'GFL':[-73.609722225,43.342777775],
+    'VWK':[-73.86138889,43.05083333],
+    'NY7':[-76.44083333,42.91388889],
+    'CTX':[-76.21513889,42.59291667],
+    'LAX':[-118.4076389,33.9425],
+    'PHX':[-112.01055555,33.43513889],
+    'N2Y':[-76.78111111,42.88361111],
+    'NY3':[-76.465972225,42.815555555],
+    'OKC':[-97.60101852,35.39277778],
+    'HOU':[-95.27875,29.64527778],
+    'ART':[-76.020972225,43.991388885],
+    'ABE':[-75.4397222233,40.6530555533],
+    'SLK':[-74.20638889,44.38402778],
+    'IFP':[-114.5623611,35.160138885],
+    'MSS':[-74.8455555575,44.9365277775],
+    'PBI':[-80.094861115,26.68263889],
+    'DSM':[-93.658472225,41.533958335],
+    'DQK':[-75.7241666667,44.0537962967],
+    'OGS':[-75.465694445,44.681805555]
+    
+};
+
+var BJData = [
+    [{name:'JFK'},{name:'ORD',value:95.6276046953}],
+    [{name:'JFK'},{name:'LGA',value:94.5427121014}],
+    [{name:'JFK'},{name:'ATL',value:93.766537646}],
+    [{name:'JFK'},{name:'HPN',value:93.3262988163}],
+    [{name:'JFK'},{name:'PHL',value:91.0491235051}],
+    [{name:'JFK'},{name:'EWR',value:90.4920489134}],
+    [{name:'JFK'},{name:'BWI',value:89.168909521}],
+    [{name:'JFK'},{name:'IAD',value:89.158109191}],
+    [{name:'JFK'},{name:'DTW',value:87.3326377005}],
+    [{name:'JFK'},{name:'DCA',value:85.6965220306}],
+    [{name:'JFK'},{name:'CLT',value:84.9856896156}],
+    
+
+    
+];
+
+var SHData = [
+    [{name:'JFK'},{name:'MSP',value:84.5755880381}],
+    [{name:'JFK'},{name:'MEM',value:83.3959033764}],
+    [{name:'JFK'},{name:'BOS',value:82.6739282489}],
+    [{name:'JFK'},{name:'ALB',value:80.0166181838}],
+    [{name:'JFK'},{name:'DEN',value:78.4946106803}],
+    [{name:'JFK'},{name:'PIT',value:78.2443306739}],
+    [{name:'JFK'},{name:'BUF',value:78.206651127}],
+    [{name:'JFK'},{name:'SDF',value:78.0783080644}],
+    [{name:'JFK'},{name:'DFW',value:77.5009627842}],
+    [{name:'JFK'},{name:'SYR',value:75.0099640677}],
+   
+];
+
+var GZData = [
+    [{name:'JFK'},{name:'IND',value:74.5096052066}],
+    [{name:'JFK'},{name:'RDU',value:74.3436176043}],
+    [{name:'JFK'},{name:'BDL',value:73.0160536322}],
+    [{name:'JFK'},{name:'BNA',value:71.6001401269}],
+    [{name:'JFK'},{name:'CMH',value:70.208910544}],
+    [{name:'JFK'},{name:'ROC',value:69.4278114074}],
+    [{name:'JFK'},{name:'PVD',value:68.9046506189}],
+    [{name:'JFK'},{name:'ISP',value:67.2976334877}],
+    [{name:'JFK'},{name:'CLE',value:63.8120858378}],
+    [{name:'JFK'},{name:'CVG',value:63.6923561192}],
+    [{name:'JFK'},{name:'IAH',value:62.1778211251}],
+
+   
+];
+
+var HFData = [
+    [{name:'JFK'},{name:'OKC',value:27.5533382205}],
+    [{name:'JFK'},{name:'HOU',value:27.4649107201}],
+    [{name:'JFK'},{name:'ART',value:27.4143750107}],
+    [{name:'JFK'},{name:'ABE',value:27.0999617899}],
+    [{name:'JFK'},{name:'SLK',value:26.7868375412}],
+    [{name:'JFK'},{name:'IFP',value:26.5820378693}],
+    [{name:'JFK'},{name:'MSS',value:26.2260194068}],
+    [{name:'JFK'},{name:'PBI',value:26.0346733861}],
+    [{name:'JFK'},{name:'DSM',value:25.9588067857}],
+    [{name:'JFK'},{name:'DQK',value:25.8475610359}],
+    [{name:'JFK'},{name:'OGS',value:25.8475610359}],
+   
+];
+var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
+
+var convertData = function (data) {
+    var res = [];
+    for (var i = 0; i < data.length; i++) {
+        var dataItem = data[i];
+        var fromCoord = geoCoordMap[dataItem[0].name];
+        var toCoord = geoCoordMap[dataItem[1].name];
+        if (fromCoord && toCoord) {
+            res.push({
+                fromName: dataItem[0].name,
+                toName: dataItem[1].name,
+                coords: [fromCoord, toCoord]
+            });
+        }
+    }
+    return res;
+};
+
+var color = ['#ffa022','yellow','#a6c84c','#46bee9'];
+var series = [];
+[['first', BJData], ['second', SHData], ['third', GZData],['tenth', HFData]].forEach(function (item, i) {
+    series.push({
+        name: item[0] + ' Top10',
+        type: 'lines',
+        zlevel: 1,
+        effect: {
+            show: true,
+            period: 6,
+            trailLength: 0.7,
+            color: '#fff',
+            symbolSize: 3
+        },
+        lineStyle: {
+            normal: {
+                color: color[i],
+                width: 0,
+                curveness: 0.2
+            }
+        },
+        data: convertData(item[1])
+    },
+    {
+        name: item[0] + ' Top10',
+        type: 'lines',
+        zlevel: 2,
+        effect: {
+            show: true,
+            period: 6,
+            trailLength: 0,
+            symbol: planePath,
+            symbolSize: 15
+        },
+        lineStyle: {
+            normal: {
+                color: color[i],
+                width: 1,
+                opacity: 0.4,
+                curveness: 0.2
+            }
+        },
+        data: convertData(item[1])
+    },
+    {
+        name: item[0] + ' Top10',
+        type: 'effectScatter',
+        coordinateSystem: 'geo',
+        zlevel: 2,
+        rippleEffect: {
+            brushType: 'stroke'
+        },
+        label: {
+            normal: {
+                show: true,
+                position: 'right',
+                formatter: '{b}'
+            }
+        },
+        symbolSize: function (val) {
+            return val[2] / 8;
+        },
+        itemStyle: {
+            normal: {
+                color: color[i]
+            }
+        },
+        data: item[1].map(function (dataItem) {
+            return {
+                name: dataItem[1].name,
+                value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
+            };
+        })
+    });
+});
+
+option = {
+    backgroundColor: '#404a59',
+    title : {
+        text: 'Most Likely Airports Connected From JFK',
+        subtext: '',
+        left: 'center',
+        textStyle : {
+            color: '#fff'
+        }
+    },
+    tooltip : {
+        trigger: 'item'
+    },
+    legend: {
+        orient: 'vertical',
+        top: 'bottom',
+        left: 'right',
+        data:['first Top10', 'second Top10', 'third Top10', 'tenth Top10'],
+        textStyle: {
+            color: '#fff'
+        },
+        selectedMode: 'single'
+    },
+    geo: {
+        map: 'world',
+        center: [-78.77694444,40.63861111],
+        zoom: 6,
+        label: {
+            emphasis: {
+                show: false
+            }
+        },
+        roam: true,
+        itemStyle: {
+            normal: {
+                areaColor: '#323c48',
+                borderColor: '#404a59'
+            },
+            emphasis: {
+                areaColor: '#2a333d'
+            }
+        }
+    },
+    series: series
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
