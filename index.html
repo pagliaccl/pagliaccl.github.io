@@ -7,13 +7,45 @@
 
     <title>Fisherman's wharf</title>
     <!-- load stylesheets -->
-    <link rel="stylesheet" href="http://fonts.useso.com/css?family=Open+Sans:300,400">    <!-- Google web font "Open Sans" -->    
+    
     <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">            <!-- Font awesome -->
     <link rel="stylesheet" href="css/bootstrap.min.css">                                  <!-- Bootstrap style -->
     <link rel="stylesheet" href="css/hero-slider-style.css">                              <!-- Hero slider style (https://codyhouse.co/gem/hero-slider/) -->
     <link rel="stylesheet" href="css/magnific-popup.css">                                 <!-- Magnific popup style (http://dimsemenov.com/plugins/magnific-popup/) -->
     
-    <link rel="stylesheet" href="css/templatemo-style.css">                               <!-- Templatemo style -->
+    <link rel="stylesheet" href="css/templatemo-style.css">
+
+    <!-- Google web font "Open Sans" -->    
+   <!--  <link rel="stylesheet" href="http://fonts.useso.com/css?family=Open+Sans:300,400">    
+    <link href='http://fonts.useso.com/css?family=Jockey+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+
+<!--//fonts-->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Peak Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->  
+<!-- js -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/modernizr.custom.97074.js"></script>
+<!-- js -->
+<!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){     
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            });
+        });
+    </script>                               <!-- 
+    Templatemo style -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,7 +59,6 @@
                       
         <!-- Content -->
         <div class="cd-hero">
-
             <!-- Navigation -->        
             <div class="cd-slider-nav">
                 <nav class="navbar">
@@ -44,7 +75,7 @@
                                 <a class="nav-link" href="#0" data-no="2">Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#0" data-no="3">Projects</a>
+                                <a class="nav-link" href="#0" data-no="3" id="pj">Projects</a>
                             </li>
                             <!-- Video Feature coming soon -->
 
@@ -68,7 +99,9 @@
                                     <img src="img/snapshot.png" alt="Image" class="img-fluid tm-img">
                                     <h2 class="tm-site-name">Linxiao Bai</h2>
                                     <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-textbox-1-col">
-                                        <p class="tm-text">Hello! I am Linxiao Bai, a data scientist and a software engineer. <br></br>I am also a die-hard fishing guy and a DIY tinker. I love ocean and coding. Let's catch fishes and engineer the world!</p>
+                                        <p class="tm-text">Hello! I am Linxiao Bai, a data scientist and software engineer. I am also a die-hard fishing guy and a DIY geek. I love ocean and coding. Both things excites me.
+                                        <br>Let's catch fishes and explore the world!
+                                        </p>
 
                                     </div>
                                 </div>
@@ -81,37 +114,273 @@
 
                 <li>
                     <div class="cd-full-width">
-
                         <div class="container-fluid js-tm-page-content" data-page-no="2">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="tm-2-col-container">
-                            
+                                    <div class="tm-2-col-container">                            
                                         <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-1-col-textbox">
-                                            <h2 class="tm-text-title">Education</h2>
-                                            <p class="tm-text">Place holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holder</p>
-                                            <p class="tm-text">Place holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holder</p>
-                                            <p class="tm-text">Place holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holder</p>
-                                            <p class="tm-text">Place holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holder</p>
-                                            <p class="tm-text">Place holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holder</p>
-                                            <p class="tm-text">Place holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holder</p>
+                                            <h1 class="tm-text-title">Education<br><br></h1>
 
-                                            <p class="tm-text">Place holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holder</p>
+                                            <table>
+                                                <tbody>
+
+                                                <tr>
+                                                <td><b>University of Rochester</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>Sept, 2016-May, 2017 </td>
+                                                </tr>
+
+                                                <tr>
+                                                <td>Master of Data Science</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+
+                                                <tr>
+                                                <td>GPA: 3.9</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        Research Projects:
+
+                                                        <table>
+                                                            <tbody>
+
+                                                                <tr>
+                                                                    <td>
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;1.Non-Human-Traffic Detection, VisualDX tomcat Log Analysis.
+                                                                    </td>
+                                                                </tr>
+
+
+                                                                <tr>
+                                                                    <td>
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;2.Deep Learning Application, NYC Ground Trffic Prediction
+                                                                    </td>
+                                                                </tr>
+
+
+                                                                
+                                                                <tr>
+                                                                    <td>
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/pagliaccl/feature_selection_samSung_data">3.Human Acativity Detection and Feature Selection.</a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/pagliaccl/dnn_analysis">4.DNN Implimentation and Hidden Layer Size Analysis.</a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/pagliaccl/one_key_spark_example">5.Shell and Script, Setting Spark Enviroment on PC and Unix.</a>
+                                                                    </td>
+                                                                </tr>
+                                                                
+                                                                
+
+                                                                
+                                                                <tr>
+                                                                    <td>
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;See more proud work on Project tab!
+                                                                    </td>
+                                                                </tr>
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td>
+                                                        <br>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                <td><b>University of Illinois at Urbana Champaign</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>Sept, 2016----Sept, 2017 </td>
+                                                </tr>
+                                                <tr>
+                                                <td>Bechelor of Statistics, Computer Science</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+
+                                                <tr>
+                                                <td>GPA: 3.7</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                <td>Honors:  </td>
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;1.Distinct Graduates Honor</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;2.John E. Gieseking Scholarship</td>
+                                                            
+                                                        </tr>
+                                                    </tbody>
+                                                <tr><br><br></tr>
+                                            </table>
+
+                                            <h1 class="tm-text-title">Experience<br><br></h1>
+
+
+                                            <p class="tm-text">Place holderPlace holderPlace holderPlace</p>
+                                            <p class="tm-text">Place holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holder</p>
+                                            
+                                            <h1 class="tm-text-title">Skills</h1>
                                         </div>
 
-<!--                                         <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox">
+
+
+
+                                       <!--  <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox">
                                             <h2 class="tm-text-title">Work experience</h2>
                                             <p class="tm-text">
-                                            Place holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holder</p>
-                                            <p class="tm-text">Place holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holderPlace holder</p>
                                         </div> -->
 
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="tm-2-col-container">                 
+                                        <div class="tm-bg-white-translucent col-md-3 skills-grid text-center">
+                                            
+                                            <div class="circle" id="circles-1"></div>
+                                            <font size="4" color="black">Spark <br></font>
+                                            
+                                        </div>
+                                        <div class="tm-bg-white-translucent col-md-3 skills-grid text-center">
+                                            <div class="circle" id="circles-2"></div>
+                                            <font size="4" color="black">R <br></font>
+                                        </div>
+                                        <div class="tm-bg-white-translucent col-md-3 skills-grid text-center">
+                                            <div class="circle" id="circles-3"></div>
+                                            <font size="4" color="black">Python <br></font>
+                                        </div>
+                                        <div class="tm-bg-white-translucent col-md-3 skills-grid text-center">
+                                            <div class="circle" id="circles-4"></div>
+                                            <font size="4" color="black">Scala <br></font>
+                                        </div>
+                                        
+                                        <div class="clearfix"> </div>
+                                        <script type="text/javascript" src="js/circles.js"></script>
+                                        <script>
+                                            var percent=[90,90,85,85]
+                                            var colors = [
+                                                    ['#e5de52', '#76b852'], ['#e5de52', '#76b852'], ['#e5de52', '#76b852'], ['#e5de52', '#76b852']
+                                                ];
+                                            for (var i = 1; i <= 5; i++) {
+                                                var child = document.getElementById('circles-' + i),
+                                                    percentage = 40 + (i * 10);
+                                                    
+                                                Circles.create({
+                                                    id:         child.id,
+                                                    percentage: percent[i-1],
+                                                    radius:     80,
+                                                    width:      10,
+                                                    number:     percent[i-1],
+                                                    text:       '%',
+                                                    colors:     colors[i - 1]
+                                                });
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+
+
+                            <!-- <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="tm-2-col-container">                            
+                                        <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-1-col-textbox">
+                                        <p class="tm-text"><br></p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                        </div></div></div></div> -->
+                            
+
+
+
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="tm-2-col-container">                 
+                                        <div class="tm-bg-white-translucent col-md-3 skills-grid text-center">
+                                            <font size="4" color="black"><br></font>
+                                            <div class="circle" id="circles-5"></div>
+                                            <font size="4" color="black">Visualization</font>
+                                            
+                                            <!-- <p>Spark, Scala</p> -->
+                                        </div>
+                                        <div class="tm-bg-white-translucent col-md-3 skills-grid text-center">
+                                            <font size="4" color="black"><br></font>
+                                            <div class="circle" id="circles-6"></div>
+                                            <font size="4" color="black">Machine Learning</font>
+                                        </div>
+                                        <div class="tm-bg-white-translucent col-md-3 skills-grid text-center">
+                                            <font size="4" color="black"><br></font>
+                                            <div class="circle" id="circles-7"></div>
+                                            <font size="4" color="black">Probabilistic Modeling</font>
+                                        </div>
+                                        <div class="tm-bg-white-translucent col-md-3 skills-grid text-center">
+                                            <font size="4" color="black"><br></font>
+                                            <div class="circle" id="circles-8"></div>
+                                            <font size="4" color="black">Time Series Analysis</font>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                        <script type="text/javascript" src="js/circles.js"></script>
+                                        <script>
+                                            var percent=[95,90,90,90]
+                                            var colors = [
+                                                    ['#e5de52', '#76b852'], ['#e5de52', '#76b852'], ['#e5de52', '#76b852'], ['#e5de52', '#76b852']
+                                                ];
+                                            for (var i = 5; i <= 8; i++) {
+                                                var child = document.getElementById('circles-' + i),
+                                                    percentage = 40 + (i * 10);
+                                                    
+                                                Circles.create({
+                                                    id:         child.id,
+                                                    percentage: percent[i-5],
+                                                    radius:     80,
+                                                    width:      10,
+                                                    number:     percent[i-5],
+                                                    text:       '%',
+                                                    colors:     colors[i - 5]
+                                                });
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                                                
-                    </div> <!-- .cd-full-width -->
+
+                        <a class="button1 button3" href="LinxiaoBai_DataScience.pdf">PDF resume</a>  
+
+                    </div> 
+                    <!-- .cd-full-width -->
 
                 </li>
                 
@@ -239,10 +508,13 @@
                     </div> <!-- .cd-full-width -->
                 </li>
             </ul> <!-- .cd-hero-slider -->
+
+
             
             <footer class="tm-footer">
             
                 <div class="tm-social-icons-container">
+                    <a href="mailto:lbai2@ur.rochester.edu" class="tm-social-link"><i class="fa fa-envelope"  fa-lg"></i></a>  
                     <a href="https://www.facebook.com/linxiao.bai.1" class="tm-social-link"><i class="fa fa-facebook fa-lg"></i></a>
                     <a href="https://github.com/pagliaccl" class="tm-social-link"><i class="fa fa-github fa-lg"></i></a>
                     <a href="https://www.linkedin.com/in/linxiaobai" class="tm-social-link"><i class="fa fa-linkedin fa-lg"></i></a>
