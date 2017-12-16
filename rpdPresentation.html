@@ -63,9 +63,10 @@
       }
     </style>
   </head>
-  <body>  
+  <body> 
 
       <div id="map"></div>
+
 
     <div id="content">
   
@@ -1940,7 +1941,27 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 43.192603, lng:  -77.627838},
     zoom: 17,
+    mapTypeControl: true,
+    
   });
+
+
+  var styles = {
+    hide: [
+      {
+        featureType: 'road',
+        stylers: [{visibility: 'off'}]
+      },
+      {
+        featureType: 'poi',
+        stylers: [{visibility: 'off'}]
+      }
+
+    ]
+  };
+
+  map.setOptions({styles: styles['hide']});
+
 
 
   for (i in goodTweetsDat){
@@ -1976,7 +1997,7 @@ function initMap() {
     fillOpacity: 0.35,
     map: map,
     center: {lat: 43.192603, lng:  -77.627738},
-    radius: 70
+    radius: 90
   });
 
   var cityCircle = new google.maps.Circle({
@@ -1987,7 +2008,7 @@ function initMap() {
     fillOpacity: 0.35,
     map: map,
     center: {lat: 43.192603, lng:  -77.627838},
-    radius: 250
+    radius: 220
   });
 
 
